@@ -42,17 +42,27 @@ My SQL
     
 ## Screenshots
 HomePage
+
 ![homepage3](https://user-images.githubusercontent.com/103116012/214643865-b2bf8387-3cb3-4bf8-b9bf-52483b6b161f.png)
+
 ![homepage4](https://user-images.githubusercontent.com/103116012/214644019-4125f27c-60ec-4118-a512-25dd66a4edb6.png)
 
+
+
 Login Page
+
 ![Sign_In](https://user-images.githubusercontent.com/103116012/214644104-1723e4de-a672-4b6f-9630-881dcf98e75e.png)
 
+
 Register Page
+
 ![register](https://user-images.githubusercontent.com/103116012/214644193-25012879-a04e-4c71-a555-4aa9f95ea1f1.png)
+
 
 DashBoard
 ![dashboard](https://user-images.githubusercontent.com/103116012/214644284-39151215-ca9f-4306-9d41-9d8c9953a4c0.png)
+
+
 ![dashboard2](https://user-images.githubusercontent.com/103116012/214644294-b0a829ce-1252-4b8b-919c-a90b8b6ffd34.png)
 
 Post Display
