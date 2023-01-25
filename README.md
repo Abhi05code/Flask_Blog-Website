@@ -46,9 +46,11 @@ My SQL
 
 ## 🔗 Links
 Email- abhiagrawal.99@gmail.com
+
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhishek-aggrawal/)
 
 
 
 
 ![JK_Logo](https://user-images.githubusercontent.com/103116012/214623153-3be674b9-ec70-4e61-99c9-253919aba355.jpg)
+![JK_Logo1](https://user-images.githubusercontent.com/103116012/214623734-a94348f1-cd9e-4d45-9e12-014ffb48374e.jpg)
