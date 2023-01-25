@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+<div class="container pt-5" >
+<div class="row">
+
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              {% set fname = 'uploads/'+ user.image  %}
+              <a href="#">
+                  <img src="{{ url_for('static', filename=fname) }}" alt="image" style="object-fit: fill;">
+              </a>
+              <h1>{{user.name}}</h1>
+              <p>{{user.email}}</p>
+          </div>
+
+          <ul class="nav nav-pills nav-stacked" id="myList">
+    <li  data-panel="panel1"><a href="#"> <i class="fa fa-user"></i> Profile </a></li>
+              <li data-panel="panel2"> <a href="#"> <i class="fa fa-edit"></i> Edit password</a></li>
+    <li data-panel="panel3"><a href="#"> <i class="fa fa-calendar"></i> My Posts  <span class="label label-info pull-right r-activity"> {{count}}</span></a></li>
+
+</ul>
+
+      </div>
+  </div>
+  <div class="profile-info col-md-9">
+      <div class="beautiful-border">
+          <form action = "/post/{{user.sno}}" method="post">
+              <textarea name="title" placeholder="Title" rows="1" style="
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0px 0px 5px 0px #ddd;
+    padding: 20px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;color:#0f0f0f;white-space:pre-wrap;
+    " class="form-control input-lg p-text-area"></textarea>
+              <textarea name="content" style="
+    border: 2px solid #ddd;
+    border-radius: 10px;
+
+    font-size: 16px;
+    box-shadow: 0px 0px 5px 0px #ddd;
+    padding: 20px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;color:#0f0f0f;white-space:pre-wrap;
+    " placeholder="Whats in your mind today?" rows="10" class="form-control input-lg p-text-area"></textarea>
+                <button type="submit" class="btn btn-success pull-right" onclick="alertSuccess()">Post</button>
+          </form>
+
+      </div>
+
+ <div class="panel" style="margin-top: 50px;">
+     <div id="side-panel">
+  <div id="panel1" class="panel-content">
+     <div class="panel-body bio-graph-info">
+              <h1>Bio Graph</h1>
+              <div class="row">
+                  <div class="bio-row">
+                      <p><span>Name </span>: {{user.name}}</p>
+                  </div>
+
+                  <div class="bio-row">
+                      <p><span>Country </span>: {{user.country}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Birthday</span>: {{user.birthdate}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Occupation </span>: {{user.occupation}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Email </span>: {{user.email}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Mobile </span>: {{user.contactno}}</p>
+                  </div>
+
+              </div>
+          </div>
+  </div>
+  <div id="panel2" class="panel-content" style="display:none;">
+    <div class="container">
+  <h2>Edit Profile</h2>
+  <form action = "/edit/{{user.sno}}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name = "password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$" placeholder="Enter password" style="width: 500px;">
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id = "confirm_password" name = "confirm_password" class="form-control" id="confirm-password" placeholder="Confirm password" style="width: 500px;">
+    </div>
+
+    <div class="form-group">
+      <label for="avatar">Avatar(optional):</label>
+      <input type="file" class="form-control-file" id="avatar" name="file" value = "0">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+  </div>
+  <div id="panel3" class="panel-content" style="display:none;">
+    <div class="stream-posts">
+                    {% for post in posts %}
+          <div class="post-preview">
+            <a href="/postdisplay/{{post.sno}}">
+              <h2 style = "background: linear-gradient(to right, #f32170,
+                    #ff6b08, #cf23cf, #eedd44);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;" class="post-title">{{ post.title }}
+
+              </h2>
+
+            </a>
+            <p class="post-meta">Posted
+              on {{post.date}}</p>
+          </div>
+
+          {{post.content[0:143]}}...
+          <hr>
+
+          {% endfor %}
+  </div>
+</div>
+
+  </div>
+
+
+
+
+
+  </div>
+</div>
+</div>
+<script>
+  var list = document.getElementById("myList");
+  var items = list.getElementsByTagName("li");
+
+  for (var i = 0; i < items.length; i++) {
+    items[i].addEventListener("click", function() {
+      var panelId = this.getAttribute("data-panel");
+      var panel = document.getElementById(panelId);
+      var panelContent = document.getElementsByClassName("panel-content");
+      for (var j = 0; j < panelContent.length; j++) {
+        panelContent[j].style.display = "none";
+      }
+      panel.style.display = "block";
+    });
+  }
+</script>
+<script>
+    var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+function alertSuccess(){
+alert("Successfully submitted your post");
+}
+</script>
+    {% endblock %}

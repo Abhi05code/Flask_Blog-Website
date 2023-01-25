@@ -1,0 +1,10 @@
+{
+  "params":
+  {
+
+    "local_uri": "mysql://root:mysql123@localhost/jkcodingfb",
+    "login_image":"login.svg",
+    "no_of_posts": 3
+  }
+
+}

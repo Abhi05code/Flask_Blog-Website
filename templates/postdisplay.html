@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container mt-5" style="padding-top:100px">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">{{ posts.title }}</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Posted on {{ posts.date }} by {{ posts.name }}</div>
+                            <!-- Post categories-->
+<!--                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>-->
+<!--                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>-->
+                        </header>
+
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">{{ posts.content }}</p>
+
+                        </section>
+                    </article>
+
+                </div>
+            </div>
+</div>
+ {% endblock %}
