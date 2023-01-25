@@ -1,5 +1,5 @@
 
-My First Blog WebSite
+## Blog WebSite
 
 
 This is a flask based blog written in python language whose frontend is created using bootstrap. If you have any questions or suggestions, feel free to open an issue or pull request :)
@@ -53,4 +53,4 @@ Email- abhiagrawal.99@gmail.com
 
 
 ![JK_Logo](https://user-images.githubusercontent.com/103116012/214623153-3be674b9-ec70-4e61-99c9-253919aba355.jpg)
-![JK_Logo1](https://user-images.githubusercontent.com/103116012/214623734-a94348f1-cd9e-4d45-9e12-014ffb48374e.jpg)
+
