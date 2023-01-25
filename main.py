@@ -6,7 +6,7 @@ import re
 import os
 import math
 from datetime import datetime, timedelta
-
+from sqlalchemy import or_
 
 from werkzeug.utils import secure_filename
 
@@ -52,6 +52,12 @@ class Posts(db.Model):
 
 app.permanent_session_lifetime = timedelta(minutes=1)
 
+@app.route('/search', methods=['POST'])
+def search():
+    search_query = "%{}%".format(request.form['search_query'])
+    posts = Posts.query.filter(or_(Posts.title.like(search_query), Posts.name.like(search_query))).all()
+    print(posts)
+    return render_template('search.html',params=params, posts=posts)
 
 def password_check(password):
     reg = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$"
