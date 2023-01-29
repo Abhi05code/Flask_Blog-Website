@@ -39,6 +39,7 @@ My SQL
 - Unzip the downloaded folder
 - Open any python editor (Here, VS Code is used)
 - Run this python file and go to the link to execute the application.
+- Please import mysqldb in SQL workbench for database
     
 ## Screenshots
 HomePage
